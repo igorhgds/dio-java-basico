@@ -2,20 +2,20 @@ package PilaresPOO;
 
 public class ComputadorPedrinho {
     public static void main(String[] args) {
-        //abrindo MSN Messenger
-        System.out.println("MSN");
-        MSNMessenger msn = new MSNMessenger();
-        msn.enviarMensagem();
-        msn.receberMensagem();
+        ServicoMensagemInstantanea smi = null;
+        /*
+        * NÃO SABE QUAL APP, MAS QUALQUER UM DEVERÁ ENVIAR E RECEBER MENSAGEM
+        */
+        String appEscolhido = "msn";
 
-        System.out.println("\nFACEBOOK");
-        FaceMessenger face = new FaceMessenger();
-        face.enviarMensagem();
-        face.receberMensagem();
+        if(appEscolhido.equals("msn"))
+            smi = new MSNMessenger();
+        else if(appEscolhido.equals("fbm"))
+            smi = new FaceMessenger();
+        else if(appEscolhido.equals("tlg"))
+            smi = new Telegram();
 
-        System.out.println("\nTELEGRAM");
-        Telegram telegram = new Telegram();
-        telegram.enviarMensagem();
-        telegram.receberMensagem();
+        smi.enviarMensagem();
+        smi.receberMensagem();
     }
 }
